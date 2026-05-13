@@ -6,6 +6,7 @@ import { ExpenseForm } from '@/components/ExpenseForm';
 import { ExpenseList } from '@/components/ExpenseList';
 import { Charts } from '@/components/Charts';
 import { FilterBar } from '@/components/FilterBar';
+import { ErrorBoundary } from '@/components/ErrorBoundary';
 
 type ExpenseFilters = {
   category?: string;
@@ -61,7 +62,8 @@ export default function Home() {
   };
 
   return (
-    <main className="min-h-screen bg-gray-50 py-6 sm:py-8">
+    <ErrorBoundary>
+      <main className="min-h-screen bg-gray-50 py-6 sm:py-8">
       <div className="max-w-6xl mx-auto px-4 sm:px-6">
         <h1 className="text-3xl sm:text-4xl font-bold mb-6 sm:mb-8 text-gray-900">
           Expense Tracker
@@ -87,5 +89,6 @@ export default function Home() {
         </div>
       </div>
     </main>
+    </ErrorBoundary>
   );
 }
