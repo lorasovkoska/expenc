@@ -23,9 +23,17 @@ interface ChartsProps {
 export function Charts({ expenses }: ChartsProps) {
   if (expenses.length === 0) {
     return (
-      <div className="p-4 sm:p-6 text-center text-gray-500">
-        Add expenses to see charts and statistics
-      </div>
+      <section
+        className="rounded-lg border border-gray-100 bg-white p-8 shadow sm:p-10"
+        aria-labelledby="overview-heading"
+      >
+        <h2 id="overview-heading" className="mb-3 text-lg font-semibold text-gray-900">
+          Overview
+        </h2>
+        <p className="mx-auto max-w-md text-center text-sm text-gray-500 sm:text-base">
+          Add expenses to see charts and statistics
+        </p>
+      </section>
     );
   }
 
@@ -63,15 +71,18 @@ export function Charts({ expenses }: ChartsProps) {
   const colors = ['#FF6B6B', '#4ECDC4', '#45B7D1', '#FFA07A', '#98D8C8', '#9E9E9E'];
 
   return (
-    <div className="space-y-6">
-      <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+    <section className="space-y-6" aria-labelledby="overview-heading">
+      <h2 id="overview-heading" className="text-lg font-semibold text-gray-900">
+        Overview
+      </h2>
+      <div className="grid grid-cols-1 gap-4 sm:grid-cols-3">
         <StatsCard label="Total Spent" value={formatCurrency(total)} />
         <StatsCard label="Average Expense" value={formatCurrency(average)} />
         <StatsCard label="Number of Expenses" value={count.toString()} />
       </div>
 
       {categoryData.length > 0 && (
-        <div className="bg-white p-4 sm:p-6 rounded-lg shadow">
+        <div className="rounded-lg border border-gray-100 bg-white p-4 shadow sm:p-6">
           <h3 className="text-lg font-semibold mb-4">Expenses by Category</h3>
           <div className="w-full min-h-[300px]">
             <ResponsiveContainer width="100%" height={300}>
@@ -102,7 +113,7 @@ export function Charts({ expenses }: ChartsProps) {
       )}
 
       {barData.length > 0 && (
-        <div className="bg-white p-4 sm:p-6 rounded-lg shadow">
+        <div className="rounded-lg border border-gray-100 bg-white p-4 shadow sm:p-6">
           <h3 className="text-lg font-semibold mb-4">Weekly Spending</h3>
           <div className="w-full min-h-[300px]">
             <ResponsiveContainer width="100%" height={300}>
@@ -121,6 +132,6 @@ export function Charts({ expenses }: ChartsProps) {
           </div>
         </div>
       )}
-    </div>
+    </section>
   );
 }

@@ -1,10 +1,8 @@
 @import "tailwindcss";
 
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
+/* don't add a second `* { margin:0 }` after Tailwind — it gets emitted *after*
+   the @layer utilities block and overrides space-y / gap helpers that use :where()
+   (zero specificity), so all vertical spacing looks "missing" */
 
 body {
   font-family:

@@ -73,12 +73,12 @@ export function FilterBar({ onFilterChange }: FilterBarProps) {
   };
 
   return (
-    <div className="bg-white p-4 sm:p-6 rounded-lg shadow space-y-4">
-      <h3 className="text-lg font-semibold">Filters &amp; Sort</h3>
+    <div className="space-y-6 rounded-lg border border-gray-100 bg-white p-5 shadow sm:p-6">
+      <h3 className="text-lg font-semibold text-gray-900">Filters &amp; Sort</h3>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-        <div>
-          <label htmlFor="filter-category" className="block text-sm font-medium mb-1">
+      <div className="grid grid-cols-1 gap-x-4 gap-y-5 md:grid-cols-2 md:gap-y-6">
+        <div className="flex flex-col gap-2">
+          <label htmlFor="filter-category" className="text-sm font-medium text-gray-700">
             Category
           </label>
           <select
@@ -97,8 +97,8 @@ export function FilterBar({ onFilterChange }: FilterBarProps) {
           </select>
         </div>
 
-        <div>
-          <label htmlFor="filter-sort" className="block text-sm font-medium mb-1">
+        <div className="flex flex-col gap-2">
+          <label htmlFor="filter-sort" className="text-sm font-medium text-gray-700">
             Sort By
           </label>
           <select
@@ -115,8 +115,8 @@ export function FilterBar({ onFilterChange }: FilterBarProps) {
           </select>
         </div>
 
-        <div>
-          <label htmlFor="filter-start-date" className="block text-sm font-medium mb-1">
+        <div className="flex flex-col gap-2">
+          <label htmlFor="filter-start-date" className="text-sm font-medium text-gray-700">
             From Date
           </label>
           <input
@@ -129,8 +129,8 @@ export function FilterBar({ onFilterChange }: FilterBarProps) {
           />
         </div>
 
-        <div>
-          <label htmlFor="filter-end-date" className="block text-sm font-medium mb-1">
+        <div className="flex flex-col gap-2">
+          <label htmlFor="filter-end-date" className="text-sm font-medium text-gray-700">
             To Date
           </label>
           <input
@@ -144,14 +144,16 @@ export function FilterBar({ onFilterChange }: FilterBarProps) {
         </div>
       </div>
 
-      <button
-        type="button"
-        onClick={handleReset}
-        className="w-full bg-gray-200 text-gray-800 py-2 rounded font-medium hover:bg-gray-300"
-        aria-label="Reset all filters"
-      >
-        Reset Filters
-      </button>
+      <div className="border-t border-gray-100 pt-5">
+        <button
+          type="button"
+          onClick={handleReset}
+          className="w-full rounded-md bg-gray-200 py-2.5 font-medium text-gray-800 transition-colors hover:bg-gray-300"
+          aria-label="Reset all filters"
+        >
+          Reset Filters
+        </button>
+      </div>
     </div>
   );
 }

@@ -66,18 +66,20 @@ export function ExpenseForm({ onSubmit }: ExpenseFormProps) {
   return (
     <form
       onSubmit={handleSubmit}
-      className="space-y-4 p-4 sm:p-6 bg-white rounded-lg shadow"
+      className="space-y-5 rounded-lg border border-gray-100 bg-white p-5 shadow sm:p-6"
     >
-      <h2 className="text-xl font-semibold">Add New Expense</h2>
+      <h2 className="text-xl font-semibold text-gray-900">Add New Expense</h2>
 
       {error && (
-        <div className="p-3 bg-red-100 text-red-700 rounded" role="alert">
+        <div className="rounded-md bg-red-100 p-3 text-red-700" role="alert">
           {error}
         </div>
       )}
 
-      <div>
-        <label htmlFor="amount" className="block text-sm font-medium mb-1">Amount ($)</label>
+      <div className="flex flex-col gap-2">
+        <label htmlFor="amount" className="text-sm font-medium text-gray-700">
+          Amount ($)
+        </label>
         <input
           id="amount"
           type="number"
@@ -92,8 +94,10 @@ export function ExpenseForm({ onSubmit }: ExpenseFormProps) {
         />
       </div>
 
-      <div>
-        <label htmlFor="category" className="block text-sm font-medium mb-1">Category</label>
+      <div className="flex flex-col gap-2">
+        <label htmlFor="category" className="text-sm font-medium text-gray-700">
+          Category
+        </label>
         <select
           id="category"
           value={category}
@@ -109,8 +113,10 @@ export function ExpenseForm({ onSubmit }: ExpenseFormProps) {
         </select>
       </div>
 
-      <div>
-        <label htmlFor="date" className="block text-sm font-medium mb-1">Date</label>
+      <div className="flex flex-col gap-2">
+        <label htmlFor="date" className="text-sm font-medium text-gray-700">
+          Date
+        </label>
         <input
           id="date"
           type="date"
@@ -123,9 +129,9 @@ export function ExpenseForm({ onSubmit }: ExpenseFormProps) {
         />
       </div>
 
-      <div>
-        <label htmlFor="description" className="block text-sm font-medium mb-1">
-          Description <span className="text-gray-400 font-normal">(optional)</span>
+      <div className="flex flex-col gap-2">
+        <label htmlFor="description" className="text-sm font-medium text-gray-700">
+          Description <span className="font-normal text-gray-400">(optional)</span>
         </label>
         <textarea
           id="description"
@@ -138,17 +144,19 @@ export function ExpenseForm({ onSubmit }: ExpenseFormProps) {
           disabled={isSubmitting}
           aria-label="Expense description"
         />
-        <p className="text-xs text-gray-500 mt-1">{description.length}/100</p>
+        <p className="text-xs text-gray-500">{description.length}/100</p>
       </div>
 
-      <button
-        type="submit"
-        disabled={isSubmitting}
-        className="w-full bg-blue-600 text-white py-2 rounded font-medium hover:bg-blue-700 disabled:opacity-50 transition-colors"
-        aria-label="Add expense"
-      >
-        {isSubmitting ? 'Adding...' : 'Add Expense'}
-      </button>
+      <div className="border-t border-gray-100 pt-5">
+        <button
+          type="submit"
+          disabled={isSubmitting}
+          className="w-full rounded-md bg-blue-600 py-2.5 font-medium text-white transition-colors hover:bg-blue-700 disabled:opacity-50"
+          aria-label="Add expense"
+        >
+          {isSubmitting ? 'Adding...' : 'Add Expense'}
+        </button>
+      </div>
     </form>
   );
 }

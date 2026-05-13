@@ -63,32 +63,37 @@ export default function Home() {
 
   return (
     <ErrorBoundary>
-      <main className="min-h-screen bg-gray-50 py-6 sm:py-8">
-      <div className="max-w-6xl mx-auto px-4 sm:px-6">
-        <h1 className="text-3xl sm:text-4xl font-bold mb-6 sm:mb-8 text-gray-900">
-          Expense Tracker
-        </h1>
+      <main className="min-h-screen w-full bg-gray-50 py-6 sm:py-8">
+        <div className="mx-auto w-full max-w-6xl px-4 sm:px-6 lg:px-8">
+          <header className="mb-8 sm:mb-10">
+            <h1 className="text-3xl sm:text-4xl font-bold text-gray-900 tracking-tight">
+              Expense Tracker
+            </h1>
+            <p className="mt-2 max-w-2xl text-sm text-gray-600 sm:text-base">
+              Add expenses on the left — charts and your transaction list update on the right.
+            </p>
+          </header>
 
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 sm:gap-8">
-          <div className="lg:col-span-1">
-            <ExpenseForm onSubmit={handleAddExpense} />
-          </div>
+          <div className="grid grid-cols-1 items-start gap-8 lg:grid-cols-3 lg:gap-10">
+            <div className="lg:col-span-1">
+              <ExpenseForm onSubmit={handleAddExpense} />
+            </div>
 
-          <div className="lg:col-span-2 space-y-6">
-            <Charts expenses={filteredExpenses} />
-            <FilterBar onFilterChange={setFilters} />
-            <div className="bg-white rounded-lg shadow p-4 sm:p-6">
-              <h2 className="text-xl font-semibold mb-4">Transactions</h2>
-              <ExpenseList
-                expenses={filteredExpenses}
-                onDelete={deleteExpense}
-                isLoading={isLoading}
-              />
+            <div className="flex flex-col gap-8 lg:col-span-2">
+              <Charts expenses={filteredExpenses} />
+              <FilterBar onFilterChange={setFilters} />
+              <div className="rounded-lg border border-gray-100 bg-white p-5 shadow sm:p-6">
+                <h2 className="mb-5 text-xl font-semibold text-gray-900">Transactions</h2>
+                <ExpenseList
+                  expenses={filteredExpenses}
+                  onDelete={deleteExpense}
+                  isLoading={isLoading}
+                />
+              </div>
             </div>
           </div>
         </div>
-      </div>
-    </main>
+      </main>
     </ErrorBoundary>
   );
 }
