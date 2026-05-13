@@ -28,10 +28,7 @@ export function ExpenseList({ expenses, onDelete, isLoading }: ExpenseListProps)
     );
   }
 
-  // sort by date descending (newest first)
-  const sorted = [...expenses].sort(
-    (a, b) => new Date(b.date).getTime() - new Date(a.date).getTime()
-  );
+  // order comes from parent (filters / sort bar) — don't re-sort here
 
   const handleDelete = (id: string) => {
     onDelete(id);
@@ -39,7 +36,7 @@ export function ExpenseList({ expenses, onDelete, isLoading }: ExpenseListProps)
 
   return (
     <div className="space-y-2">
-      {sorted.map((expense) => (
+      {expenses.map((expense) => (
         <div
           key={expense.id}
           className="p-4 bg-white rounded-lg shadow hover:shadow-md transition-shadow border-l-4 border-blue-600"
