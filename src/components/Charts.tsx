@@ -23,7 +23,7 @@ interface ChartsProps {
 export function Charts({ expenses }: ChartsProps) {
   if (expenses.length === 0) {
     return (
-      <div className="p-6 text-center text-gray-500">
+      <div className="p-4 sm:p-6 text-center text-gray-500">
         Add expenses to see charts and statistics
       </div>
     );
@@ -71,7 +71,7 @@ export function Charts({ expenses }: ChartsProps) {
       </div>
 
       {categoryData.length > 0 && (
-        <div className="bg-white p-6 rounded-lg shadow">
+        <div className="bg-white p-4 sm:p-6 rounded-lg shadow">
           <h3 className="text-lg font-semibold mb-4">Expenses by Category</h3>
           <div className="w-full min-h-[300px]">
             <ResponsiveContainer width="100%" height={300}>
@@ -102,7 +102,7 @@ export function Charts({ expenses }: ChartsProps) {
       )}
 
       {barData.length > 0 && (
-        <div className="bg-white p-6 rounded-lg shadow">
+        <div className="bg-white p-4 sm:p-6 rounded-lg shadow">
           <h3 className="text-lg font-semibold mb-4">Weekly Spending</h3>
           <div className="w-full min-h-[300px]">
             <ResponsiveContainer width="100%" height={300}>

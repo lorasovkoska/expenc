@@ -64,7 +64,10 @@ export function ExpenseForm({ onSubmit }: ExpenseFormProps) {
   const today = new Date().toISOString().split('T')[0];
 
   return (
-    <form onSubmit={handleSubmit} className="space-y-4 p-6 bg-white rounded-lg shadow">
+    <form
+      onSubmit={handleSubmit}
+      className="space-y-4 p-4 sm:p-6 bg-white rounded-lg shadow"
+    >
       <h2 className="text-xl font-semibold">Add New Expense</h2>
 
       {error && (

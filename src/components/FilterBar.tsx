@@ -73,7 +73,7 @@ export function FilterBar({ onFilterChange }: FilterBarProps) {
   };
 
   return (
-    <div className="bg-white p-6 rounded-lg shadow space-y-4">
+    <div className="bg-white p-4 sm:p-6 rounded-lg shadow space-y-4">
       <h3 className="text-lg font-semibold">Filters &amp; Sort</h3>
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4">

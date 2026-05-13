@@ -8,7 +8,7 @@ interface StatsCardProps {
 
 export function StatsCard({ label, value }: StatsCardProps) {
   return (
-    <div className="bg-white p-4 rounded-lg shadow">
+    <div className="bg-white p-3 sm:p-4 rounded-lg shadow">
       <p className="text-gray-600 text-sm">{label}</p>
       <p className="text-2xl font-bold mt-1">{value}</p>
     </div>
